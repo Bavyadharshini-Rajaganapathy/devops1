@@ -9,14 +9,14 @@ pipeline {
         }
         stage('build') {
             steps {
-               sh "mvn clean"
-               sh "mvn install"
+               bat "mvn clean"
+               bat "mvn install"
 }
 }
 stage('build to images') {
             steps {
                script{
-                  sh 'docker build -t bavyadharshini/simplewebapp .'
+                  sh 'docker build -t deepika040/simplewebapp .'
                }
     }
 }
@@ -24,7 +24,7 @@ stage('push to hub') {
             steps {
                script{
                  withDockerRegistry(credentialsId: 'Docker_cred', url: 'https://index.docker.io/v1/') {
-                  sh 'docker push bavyadharshini/simplewebapp'
+                  sh 'docker push deepika040/simplewebapp'
                }
             }
             }
