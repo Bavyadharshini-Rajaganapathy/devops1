@@ -16,7 +16,7 @@ pipeline {
 stage('build to images') {
             steps {
                script{
-                  sh 'docker build -t deepika040/simplewebapp .'
+                  sh 'docker build -t bavyadharshini/simplewebapp .'
                }
     }
 }
@@ -24,7 +24,7 @@ stage('push to hub') {
             steps {
                script{
                  withDockerRegistry(credentialsId: 'Docker_cred', url: 'https://index.docker.io/v1/') {
-                  sh 'docker push deepika040/simplewebapp'
+                  sh 'docker push bavyadharshini/simplewebapp'
                }
             }
             }
