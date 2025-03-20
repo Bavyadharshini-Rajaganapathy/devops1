@@ -1,4 +1,5 @@
-agent any
+pipeline {
+    agent any
 
     stages {
         stage('scm') {
@@ -8,8 +9,8 @@ agent any
         }
         stage('build') {
             steps {
-               bat "mvn clean"
-               bat "mvn install"
+               sh "mvn clean"
+               sh "mvn install"
 }
 }
 stage('build to images') {
